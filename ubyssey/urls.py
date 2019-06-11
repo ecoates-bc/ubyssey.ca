@@ -37,52 +37,55 @@ if settings.DEBUG:
     urlpatterns += [url(r'^service-worker.js', serve_static, kwargs={'path': 'service-worker.js'})]
 
 urlpatterns += [
-    url(r'^admin', include(admin_urls)),
-    url(r'^api/', include(api_urls)),
-    url(r'^podcasts/', include(podcasts_urls)),
+    # url(r'^admin', include(admin_urls)),
+    # url(r'^api/', include(api_urls)),
+    # url(r'^podcasts/', include(podcasts_urls)),
 
-    url(r'^$', theme.home, name='home'),
-    url(r'^search/$', theme.search, name='search'),
-    url(r'^archive/$', theme.archive, name='archive'),
-    url(r'^rss/$', FrontpageFeed(), name='frontpage-feed'),
+    # url(r'^$', theme.home, name='home'),
+    # url(r'^search/$', theme.search, name='search'),
+    # url(r'^archive/$', theme.archive, name='archive'),
+    # url(r'^rss/$', FrontpageFeed(), name='frontpage-feed'),
 
-    url(r'^(?P<slug>[-\w]+)/rss/$', SectionFeed(), name='section-feed'),
-    url(r'^authors/(?P<slug>[-\w]+)/$', theme.author, name='author'),
-    url(r'^topic/(\d*)/$', theme.topic, name='topic'),
+    # url(r'^(?P<slug>[-\w]+)/rss/$', SectionFeed(), name='section-feed'),
+    # url(r'^authors/(?P<slug>[-\w]+)/$', theme.author, name='author'),
+    # url(r'^topic/(\d*)/$', theme.topic, name='topic'),
 
-    # Guide to UBC
-    url(r'^guide/$', guide.landing, name='guide-landing'),
-    url(r'^guide/(?P<slug>[-\w]+)/$', guide.article, name='guide-article'),
+    # # Guide to UBC
+    # url(r'^guide/$', guide.landing, name='guide-landing'),
+    # url(r'^guide/(?P<slug>[-\w]+)/$', guide.article, name='guide-article'),
 
-    # Magazine
-    url(r'^magazine/$', magazine.landing, name='magazine-landing'),
-    url(r'^magazine/2017/$', magazine.landing_2017, name='magazine-landing-2017'),
-    url(r'^magazine/2018/$', magazine.landing_2018, name='magazine-landing-2018'),
-    url(r'^magazine/(?P<slug>[-\w]+)/$', magazine.article, name='magazine-article'),
+    # # Magazine
+    # url(r'^magazine/$', magazine.landing, name='magazine-landing'),
+    # url(r'^magazine/2017/$', magazine.landing_2017, name='magazine-landing-2017'),
+    # url(r'^magazine/2018/$', magazine.landing_2018, name='magazine-landing-2018'),
+    # url(r'^magazine/(?P<slug>[-\w]+)/$', magazine.article, name='magazine-article'),
 
-    # Advertising
-    url(r'^advertise/$', advertise.new, name='advertise-new'),
+    # # Advertising
+    # url(r'^advertise/$', advertise.new, name='advertise-new'),
 
-    # Elections
-    url(r'^elections/$', theme.elections, name='elections'),
+    # # Elections
+    # url(r'^elections/$', theme.elections, name='elections'),
 
-    # Centennial
-    url(r'^100/$', theme.centennial, name='centennial-landing'),
+    # # Centennial
+    # url(r'^100/$', theme.centennial, name='centennial-landing'),
 
-    # Beta-features
-    # url(r'^beta/notifications/$', theme.notification, name='notification-beta'),
+    # # Beta-features
+    # # url(r'^beta/notifications/$', theme.notification, name='notification-beta'),
 
-    # Podcasts
-    url(r'^podcast/(?P<slug>[-\w]+)', theme.podcast, name='podcasts'),
+    # # Podcasts
+    # url(r'^podcast/(?P<slug>[-\w]+)', theme.podcast, name='podcasts'),
 
-    # Events
-    url(r'^events/', include(events_urls)),
-    url(r'^api/events/', include(event_api_urls)),
+    # # Events
+    # url(r'^events/', include(events_urls)),
+    # url(r'^api/events/', include(event_api_urls)),
 
-    # Videos
-    url(r'^videos/', theme.video, name='videos'),
+    # # Videos
+    # url(r'^videos/', theme.video, name='videos'),
 
-    url(r'^(?P<section>[-\w]+)/(?P<slug>[-\w]+)/$', theme.article, name='article'),
-    url(r'^(?P<slug>[-\w]+)/$', theme.section, name='page'),
-    url(r'^api/articles/(?P<pk>[0-9]+)/rendered/$', theme.article_ajax, name='article-ajax'),
+    # url(r'^(?P<section>[-\w]+)/(?P<slug>[-\w]+)/$', theme.article, name='article'),
+    # url(r'^(?P<slug>[-\w]+)/$', theme.section, name='page'),
+    # url(r'^api/articles/(?P<pk>[0-9]+)/rendered/$', theme.article_ajax, name='article-ajax'),
+
+    # Downtime
+    url(r'^$', theme.downtime, name='downtime'),
 ]

@@ -590,3 +590,6 @@ class UbysseyTheme(object):
         }
 
         return render(request, 'videos/videos.html', context)
+
+    def downtime(self, request):
+        return render(request, 'downtime.html')
