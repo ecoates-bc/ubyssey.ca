@@ -120,7 +120,12 @@
 {% endblock %}
 
 {% block scripts %}
-<script src='https://d3js.org/d3.v4.min.js'></script>
+<script src="https://d3js.org/d3.v3.min.js"></script>
+<style>
+  .interactive-map-container {
+    overflow: hidden;
+  }
+</style>
 <script>
     let svg = d3.select('.svg-map'),
       width = +svg.node().getBoundingClientRect().width,
@@ -139,16 +144,17 @@
     //     .scaleExtent([1, 8])
     //     .on("zoom", zoom));
         
-    var zoom = d3.zoom()
+    var zoom = d3.behavior.zoom()
       // only scale up, e.g. between 1x and 50x
-      .scaleExtent([1, 50])
+      .scaleExtent([1, 10])
       .on("zoom", function() {
         var e = d3.event;
         console.log(e)
         // now, constrain the x and y components of the translation by the
         // dimensions of the viewport
-        var tx = Math.min(0, Math.max(e.translate[0], width - width * e.scale));
-        var ty = Math.min(0, Math.max(e.translate[1], height - height * e.scale));
+
+        var tx = Math.min(0, Math.max(e.translate[0], width - width * e.scale * 2));
+        var ty = Math.min(0, Math.max(e.translate[1], height - height * e.scale * 2));
             // then, update the zoom behavior's internal translation, so that
             // it knows how to properly manipulate it on the next movement
             zoom.translate([tx, ty]);
